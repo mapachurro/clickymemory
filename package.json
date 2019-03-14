@@ -1,0 +1,22 @@
+{
+  "name": "clickymemory",
+  "version": "1.0.0",
+  "description": "React-based memory game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapachurro/clickymemory.git"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Sydney Dunlap, Gianfranco Trotta, Oliver Renwick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapachurro/clickymemory/issues"
+  },
+  "homepage": "https://github.com/mapachurro/clickymemory#readme"
+}
