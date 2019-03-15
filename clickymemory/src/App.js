@@ -4,6 +4,10 @@ import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import friends from "./friends.json";
 
+console.log(friends);
+
+var friendsarray = friends;
+
 function randomize(friends) {
   var n = friends.length;
   var tempArr = [];
@@ -33,7 +37,7 @@ class App extends Component {
         <Title>Clicky-Clicky Memory Game</Title>
         {this.state.friends.map(friend => (
           <FriendCard
-            onClick={randomize()}
+            onClick={randomize(friends)}
             id={friend.id}
             key={friend.id}
             image={friend.image}
