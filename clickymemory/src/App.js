@@ -3,26 +3,21 @@ import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import friends from "./friends.json";
+import checkStatus from "./components/FriendCard/checkStatus"
+import shuffleArray from "./components/FriendCard/shuffleArray"
+// import shuffle from "shuffle-array"
+//eslint-disable-next-line
+let score = 0;
 
 console.log(friends);
 
-var friendsarray = friends;
-
-function randomize(friends) {
-  var n = friends.length;
-  var tempArr = [];
-  for ( var i = 0; i < n-1; i++ ) {
-    // The following line removes one random element from arr
-    // and pushes it onto tempArr
-    tempArr.push(friends.splice(Math.floor(Math.random()*friends.length),1)[0]);
-  }
-  // Push the remaining item onto tempArr
-  tempArr.push(friends[0]);
-  friends=tempArr;
-  console.log(friends)
-  // Return it back to the app
-  return friends;
+// onClick functionality: 
+// onClick = {             }
+ 
+const increaseScore = (score) => {
+  score++;
 }
+
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
@@ -37,10 +32,11 @@ class App extends Component {
         <Title>Clicky-Clicky Memory Game</Title>
         {this.state.friends.map(friend => (
           <FriendCard
-            onClick={randomize(friends)}
+            onClick={checkStatus(friends)}
             id={friend.id}
             key={friend.id}
             image={friend.image}
+            clicked={friend.clicked}
           />
         ))}
       </Wrapper>
