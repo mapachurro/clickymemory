@@ -55,8 +55,18 @@ shuffleArray(arra1) {
     this.shuffleArray(friends);
   }
 
-  checkStatus = () => {
+  checkStatus = (info) => {
+    let imgname = "";
     console.log("checking status")
+    console.log("current pick: " + info.target.alt)
+    imgname = info.target.alt;
+    this.state.friends.forEach(name => {
+    if (name === imgname){
+      this.state.friends.imgname.clicked = true;
+    }
+
+    });
+    console.log(this.state.friends)
     if(this.clicked === "true") {
       this.endRound();
     }
@@ -77,7 +87,7 @@ shuffleArray(arra1) {
         <Title>Clicky-Clicky Memory Game</Title>
         {this.state.friends.map(friend => (
           <FriendCard
-            onClick={this.checkStatus}
+            onClick={this.checkStatus.bind(this)}
             name={friend.name}
             key={friend.id}
             image={friend.image}
