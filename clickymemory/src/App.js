@@ -18,22 +18,28 @@ class App extends Component {
     console.log ("clicked!")
   }
 
+shuffleArray(arra1) {
+    let ctr = arra1.length;
+    let temp;
+    let index;
 
-  shuffleArray(friends) {
-    var n = friends.length;
-    var tempArr = [];
-    for ( var i = 0; i < n-1; i++ ) {
-      // The following line removes one random element from arr
-      // and pushes it onto tempArr
-      tempArr.push(friends.splice(Math.floor(Math.random()*friends.length),1)[0]);
-      // Push the remaining item onto tempArr
-    tempArr.push(friends[0]);
-    friends=tempArr;
-    }
-    console.log(friends)
-    // Return it back to the app
-    return friends;
-  }
+    // While there are elements in the array
+    while (ctr > 0) {
+// Pick a random index
+        index = Math.floor(Math.random() * ctr);
+// Decrease ctr by 1
+        ctr--;
+// And swap the last element with it
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+        this.setState({
+          friends: arra1
+        });
+      }
+    return arra1;
+}
+
 
   endRound = (friends) => {
     alert("Sorry, you already clicked " + this.name + "! Try again!");
