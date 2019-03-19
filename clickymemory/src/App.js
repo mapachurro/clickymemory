@@ -14,6 +14,10 @@ class App extends Component {
     currentFriend: ""
   };
 
+  clicked(){
+    console.log ("clicked!")
+  }
+
 
   shuffleArray(friends) {
     var n = friends.length;
@@ -46,6 +50,7 @@ class App extends Component {
   }
 
   checkStatus = () => {
+    console.log("checking status")
     if(this.clicked === "true") {
       this.endRound();
     }
@@ -59,9 +64,6 @@ class App extends Component {
   // }
 
 
-
-
-
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
@@ -69,13 +71,14 @@ class App extends Component {
         <Title>Clicky-Clicky Memory Game</Title>
         {this.state.friends.map(friend => (
           <FriendCard
-            onClick={() => {this.shuffleArray()}}
+            onClick={this.checkStatus}
             name={friend.name}
             key={friend.id}
             image={friend.image}
-            clicked={friend.clicked}
+            // clicked={friend.clicked}
           />
         ))}
+
       </Wrapper>
     );
   }
